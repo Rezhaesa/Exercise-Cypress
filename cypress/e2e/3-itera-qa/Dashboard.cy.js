@@ -107,10 +107,36 @@ describe('Success to Dashboard itera-qa', () => {
         .should('be.visible')
        })
 
-    it.skip('Success to Edit Customer', () => {
+    it('Success to Edit Customer', () => {
         //cy.visit('https://itera-qa.azurewebsites.net/Dashboard')
+        cy.get('#Username').type('ESA')
+        cy.get('#Password').type('123456')
+        cy.get('.btn-primary').click()
+        cy.get('#searching').type('Customer ESA')
+        cy.get('.container > div > form > .btn').click()
         cy.get(':nth-child(2) > :nth-child(7) > .btn-outline-primary').click()
+        .should('be.visible')
+        
+    })
 
+    it('Success to Delete Customer', () => {
+        //cy.visit('https://itera-qa.azurewebsites.net/Dashboard')
+        cy.get('#Username').type('ESA')
+        cy.get('#Password').type('123456')
+        cy.get('.btn-primary').click()
+        cy.get('#searching').type('Customer ESA')
+        cy.get('.container > div > form > .btn').click()
+    
+    })
+
+    it('Success to Details Customer', () => {
+        //cy.visit('https://itera-qa.azurewebsites.net/Dashboard')
+        cy.get('#Username').type('ESA')
+        cy.get('#Password').type('123456')
+        cy.get('.btn-primary').click()
+        cy.get('#searching').type('Customer ESA')
+        cy.get('.container > div > form > .btn').click()
+    
     })
 })
   
