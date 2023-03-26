@@ -48,7 +48,7 @@ describe('Success to Dashboard itera-qa', () => {
         cy.get('h2').contains('Customer')
         cy.get(':nth-child(4) > .btn').contains('Create New')
         .should('be.visible')
-      })
+    })
 
     it('Success to Create New Customer Page', () => {
         //cy.visit('https://itera-qa.azurewebsites.net/Login')
@@ -60,9 +60,9 @@ describe('Success to Dashboard itera-qa', () => {
         cy.get(':nth-child(4) > .btn').contains('Create New')
         cy.get(':nth-child(4) > .btn').click()
         .should('be.visible')
-      })
+    })
 
-    it.skip('Success Create New Customer', () => {
+    it('Success Create New Customer', () => {
         //cy.visit('https://itera-qa.azurewebsites.net/Login')
         cy.get('#Username').type('ESA')
         cy.get('#Password').type('123456')
@@ -89,7 +89,7 @@ describe('Success to Dashboard itera-qa', () => {
         cy.get('#Email').type('TAK@gmail.com')
         cy.get('.col-md-offset-2 > .btn').click()
         .should('be.visible')
-       })
+    })
 
     it('Success to Search Customer', () => {
         //cy.visit('https://itera-qa.azurewebsites.net/Dashboard')
@@ -98,14 +98,15 @@ describe('Success to Dashboard itera-qa', () => {
         cy.get('.btn-primary').click()
         cy.get('#searching').type('Customer ESA')
         cy.get('.container > div > form > .btn').click()
-        cy.get('tbody > :nth-child(2) > :nth-child(1)').contains('Customer ESA')
-        cy.get('tbody > :nth-child(2) > :nth-child(2)').contains('Perusahaan TAK')
-        cy.get('tbody > :nth-child(2) > :nth-child(3)').contains('Jalan Alamat TAK')
-        cy.get('tbody > :nth-child(2) > :nth-child(4)').contains('Jakarta TAK')
-        cy.get('tbody > :nth-child(2) > :nth-child(5)').contains('0811111111')
-        cy.get('tbody > :nth-child(2) > :nth-child(6)').contains('TAK@gmail.com')
+        cy.get('tbody > :nth-child(2) > :nth-child(1)').contains('Customer ESA Edit')
+        cy.get('tbody > :nth-child(2) > :nth-child(2)').contains('Pagac - Yost')
+        cy.get('tbody > :nth-child(2) > :nth-child(3)').contains('069 Lilliana Summit')
+        cy.get('tbody > :nth-child(2) > :nth-child(4)').contains('New Lucieborough')
+        cy.get('tbody > :nth-child(2) > :nth-child(5)').contains('1-339-563-7238 x8106')
+        cy.get('tbody > :nth-child(2) > :nth-child(6)').contains('Tristian_Hauck45@yahoo.com')
+        cy.get('footer').scrollIntoView()
         .should('be.visible')
-       })
+    })
 
     it('Success to Edit Customer', () => {
         //cy.visit('https://itera-qa.azurewebsites.net/Dashboard')
@@ -116,7 +117,7 @@ describe('Success to Dashboard itera-qa', () => {
         cy.get('.container > div > form > .btn').click()
         cy.get(':nth-child(2) > :nth-child(7) > .btn-outline-primary').click()
         .should('be.visible')
-        
+
     })
 
     it('Success to Delete Customer', () => {
@@ -126,7 +127,9 @@ describe('Success to Dashboard itera-qa', () => {
         cy.get('.btn-primary').click()
         cy.get('#searching').type('Customer ESA')
         cy.get('.container > div > form > .btn').click()
-    
+        cy.get(':nth-child(2) > :nth-child(7) > .btn-outline-danger').click()
+        cy.get('.btn-outline-danger').click()
+        .should('be.visible')
     })
 
     it('Success to Details Customer', () => {
@@ -134,9 +137,40 @@ describe('Success to Dashboard itera-qa', () => {
         cy.get('#Username').type('ESA')
         cy.get('#Password').type('123456')
         cy.get('.btn-primary').click()
-        cy.get('#searching').type('Customer ESA')
+        cy.get('#searching').type('Sergio Koss')
         cy.get('.container > div > form > .btn').click()
-    
+        cy.get(':nth-child(2) > :nth-child(7) > .btn-outline-info').click()
+        cy.get('.dl-horizontal > :nth-child(1)').contains('Name')
+        cy.get('.dl-horizontal > :nth-child(2)').contains('Sergio Koss')
+        cy.get('.dl-horizontal > :nth-child(3)').contains('Company')
+        cy.get('.dl-horizontal > :nth-child(4)').contains('Pagac - Yost')
+        cy.get('.dl-horizontal > :nth-child(5)').contains('Address')
+        cy.get('.dl-horizontal > :nth-child(6)').contains('069 Lilliana Summit')
+        cy.get('.dl-horizontal > :nth-child(7)').contains('City')
+        cy.get('.dl-horizontal > :nth-child(8)').contains('New Lucieborough')
+        cy.get(':nth-child(9)').contains('Phone')
+        cy.get(':nth-child(10)').contains('1-339-563-7238 x8106')
+        cy.get(':nth-child(11)').contains('Email')
+        cy.get(':nth-child(12)').contains('Tristian_Hauck45@yahoo.com')
+        .should('be.visible')
+    })
+
+    it('Success to Edit Details Customer', () => {
+        //cy.visit('https://itera-qa.azurewebsites.net/Dashboard')
+        cy.get('#Username').type('ESA')
+        cy.get('#Password').type('123456')
+        cy.get('.btn-primary').click()
+        cy.get('#searching').type('Sergio Koss')
+        cy.get('.container > div > form > .btn').click()
+        cy.get(':nth-child(2) > :nth-child(7) > .btn-outline-info').click()
+        cy.get('.dl-horizontal > :nth-child(1)').contains('Name')
+        cy.get('.dl-horizontal > :nth-child(2)').contains('Sergio Koss')
+        cy.get('.btn-outline-primary').click()
+        cy.get('h2').contains('Edit')
+        cy.get('#Name').clear()
+        cy.get('#Name').type('Customer ESA Edit')
+        cy.get('.col-md-offset-2 > .btn').click()
+        .should('be.visible')
     })
 })
   
